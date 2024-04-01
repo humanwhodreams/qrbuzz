@@ -1,6 +1,5 @@
-import { ArrowUpRight, ChevronRight, Github, MoveRight } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
+import { Github } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {

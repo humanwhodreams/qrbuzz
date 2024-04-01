@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="hidden col-span-full lg:col-span-1 lg:block">
           <Brand />
           <p className="mt-3 text-xs text-gray-600 sm:text-sm dark:text-gray-400">
-            © 2024 Qrbuzz.
+            &copy; 2024 Qrbuzz.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export function SiteFooter() {
                 className="inline-flex text-gray-600 gap-x-2 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="#"
               >
-                Help & Support
+                Help &amp; Support
               </a>
             </p>
 
@@ -92,7 +92,7 @@ export function SiteFooter() {
                 className="inline-flex text-gray-600 gap-x-2 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                 href="#"
               >
-                What's New
+                What&apos;s New
               </a>
             </p>
           </div>
@@ -159,7 +159,7 @@ export function SiteFooter() {
             <div className="mt-3 sm:hidden">
               <Brand />
               <p className="mt-1 text-xs text-gray-600 sm:text-sm dark:text-gray-400">
-                © 2024 Qrbuzz.
+                &copy; 2024 Qrbuzz.
               </p>
             </div>
 
