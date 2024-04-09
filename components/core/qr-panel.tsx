@@ -1,13 +1,15 @@
 import { FileText, Link2, User, Wifi } from "lucide-react";
+import {
+  PlainTextCard,
+  UrlCard,
+  VcardCard,
+  WifiCard,
+} from "@/components/core/cards";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { GenerateQR } from "./generate-qr";
-import { PlainTextCard } from "./cards/plain-text-card";
-import { UrlCard } from "./cards/url-card";
-import { VcardCard } from "./cards/vcard-card";
-import { WifiCard } from "./cards/wifi-card";
+import { QrBox } from "./qr-box";
 
-export function Core() {
+export function QrPanel() {
   return (
     <Tabs defaultValue="url" className="grid">
       <TabsList className="grid w-full grid-cols-4">
@@ -34,7 +36,7 @@ export function Core() {
             <UrlCard />
           </div>
           <div className="md:grid-cols-1">
-            <GenerateQR />
+            <QrBox />
           </div>
         </div>
       </TabsContent>
@@ -44,7 +46,7 @@ export function Core() {
             <PlainTextCard />
           </div>
           <div className="md:grid-cols-1">
-            <GenerateQR />
+            <QrBox />
           </div>
         </div>
       </TabsContent>
@@ -54,7 +56,7 @@ export function Core() {
             <WifiCard />
           </div>
           <div className="md:grid-cols-1">
-            <GenerateQR />
+            <QrBox />
           </div>
         </div>
       </TabsContent>
@@ -64,7 +66,7 @@ export function Core() {
             <VcardCard />
           </div>
           <div className="md:grid-cols-1">
-            <GenerateQR />
+            <QrBox />
           </div>
         </div>
       </TabsContent>
