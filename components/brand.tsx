@@ -1,13 +1,16 @@
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import { type ClassValue } from "clsx";
+import { cn } from "@/lib/utils";
 
-export function Brand() {
+export function Brand({ className }: { className?: ClassValue[] }) {
   return (
     <Link
       href={"/"}
-      className="flex-none text-xl font-semibold"
-      aria-label="Qrbuzz"
+      className={cn("flex-none text-xl font-bold", className)}
+      aria-label={siteConfig.metadata.title}
     >
-      Qrbuzz
+      {siteConfig.metadata.title}
     </Link>
   );
 }

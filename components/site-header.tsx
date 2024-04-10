@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,10 +8,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
+import { ArrowUpRight } from "lucide-react";
 import { Brand } from "./brand";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import { MobileNav } from "./mobile-nav";
 import { cn } from "@/lib/utils";
+import { headerNavItems } from "@/utils/navigations";
 
 export function SiteHeader() {
   return (
@@ -25,41 +26,24 @@ export function SiteHeader() {
           <Brand />
 
           <div className="sm:hidden">
-            <Button variant={"outline"} size={"icon"}>
-              <Menu className="flex-shrink-0" />
-            </Button>
+            <MobileNav />
           </div>
         </div>
 
         <NavigationMenu className="hidden sm:block">
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="#" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle())}
-                >
-                  Docs
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle())}
-                >
-                  Blog
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(navigationMenuTriggerStyle())}
-                >
-                  About us
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
+            {headerNavItems.map((h, i) => (
+              <NavigationMenuItem key={i}>
+                <Link href={h.href} legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={cn(navigationMenuTriggerStyle())}
+                  >
+                    {h.label}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
+
             <NavigationMenuItem>
               <Link href="/create" legacyBehavior passHref>
                 <NavigationMenuLink

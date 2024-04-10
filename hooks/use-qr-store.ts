@@ -7,7 +7,7 @@ export const useQrStore = create<{
 }>()((set) => ({
   values: {
     type: "url",
-    value: "https://www.example.com",
+    value: "",
   },
   updateValues: (newValues) =>
     set({

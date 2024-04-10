@@ -18,23 +18,28 @@ import { cn } from "@/lib/utils";
 import { useQrStore } from "@/hooks/use-qr-store";
 
 export function QrBox() {
-  const rf = React.useRef<any>();
   const [foregroundColor, setForegroundColor] = React.useState("#000000");
   const [backgroundColor, setBackgroundColor] = React.useState("#ffffff");
 
   const value = useQrStore((state) => state.values);
+  const update = useQrStore((state) => state.updateValues);
 
-  const download = (e: any) => {
-    e.preventDefault();
+  const rf = React.useRef<HTMLDivElement>(null);
 
-    const qrc = rf.current.querySelector("canvas");
-    const dl = document.createElement("a");
+  const download = () => {
+    if (rf.current) {
+      const qrc = rf.current.querySelector("canvas");
+      const dl = document.createElement("a");
 
-    dl.href = qrc.toDataURL("image/png");
-    dl.download = "generated-" + value.type + "-qrcode-by-qrbuzz.png";
-    document.body.appendChild(dl);
-    dl.click();
-    document.body.removeChild(dl);
+      dl.href = qrc!!.toDataURL("image/png");
+      dl.download = "generated-" + value.type + "-qrcode-by-qrbuzz.png";
+      document.body.appendChild(dl);
+      dl.click();
+      document.body.removeChild(dl);
+      update({ type: "url", value: "" });
+    } else {
+      console.log("Failed to process qrcode.");
+    }
   };
 
   return (
@@ -153,7 +158,11 @@ export function QrBox() {
             </div>
 
             <div className="pt-4">
-              <Button className="w-full" onClick={download}>
+              <Button
+                className="w-full"
+                onClick={download}
+                disabled={value.value.length < 1 ? true : false}
+              >
                 Download <Download className="size-4 flex-shrink-0 ml-2" />
               </Button>
             </div>

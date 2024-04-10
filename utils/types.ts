@@ -1,8 +1,11 @@
-type QrFormats = "phonenumber" | "url" | "plaintext" | "wifi" | "vcard";
-
 type QrValue = {
-  type: QrFormats;
+  type: "phonenumber" | "url" | "plaintext" | "wifi" | "vcard";
   value: string;
 };
 
-export type { QrValue };
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+export type { QrValue, NavItem };
